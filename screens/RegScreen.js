@@ -37,7 +37,7 @@ export default class RegScreen extends Component {
             <View style={styles.body}>
                 <TextInput
                     value = {this.state.email}
-                    onChangeText={email =>  this.setState({email})}
+                    onChangeText={(email) =>  this.setState({email})}
                     placeholder="Input your email"
                     placeholderTextColor="black"
                     style={styles.input}
@@ -45,7 +45,7 @@ export default class RegScreen extends Component {
 
                 <TextInput
                     value = {this.state.userName}
-                    onChangeText={userName =>  this.setState({userName})}
+                    onChangeText={(userName) =>  this.setState({userName})}
                     onSubmitEditing={() => this.passwordInput.focus()}
                     placeholder="Input your UserName"
                     placeholderTextColor="black"
@@ -53,8 +53,9 @@ export default class RegScreen extends Component {
                 />
 
                 <TextInput
+
                     value={this.state.password}
-                    onChangeText={password =>  this.setState({password})}
+                    onChangeText={(password) =>  this.setState({password})}
                     placeholder="Input your password"
                     placeholderTextColor="black"
                     secureTextEntry
@@ -79,6 +80,13 @@ export default class RegScreen extends Component {
                     onPress={ ()=> navigate('HomeScreen') }>
                     <Text style={styles.btnText}>Go Home</Text>
                 </TouchableOpacity>
+                <View>
+                    <Text>
+                        {this.state.email}
+                        {this.state.userName}
+                        {this.state.password}
+                    </Text>
+                </View>
 
 
 

@@ -1,27 +1,38 @@
 import React, { Component }from "react";
 import {StyleSheet, Text, View, TouchableOpacity, AsyncStorage, AppRegistry} from 'react-native';
 
-class Account extends Component {
-    render() {
-        return (
-            <Text>Hello {this.props.AccUser}!</Text>
-        );
-    }
-}
+
 
 export default class AccList extends Component {
     static navigationOptions = {
         title: "Account List",
     };
+    constructor(props) {
+        super(props)
+        this.state = {
+            userName: '',
+            email: '',
+            password: '',
+
+        }
+    };
     render(){
         const { navigate } = this.props.navigation;
-        const AccUser = AsyncStorage.getItem('user');
+        const userEmail = AsyncStorage.getItem('email').string;
+        const userName =  AsyncStorage.setItem('userName').string;
+        const userPass = AsyncStorage.setItem('password').string;
+
         return(
 
             <View style={styles.body}>
             <View style={styles.accUl}>
-                <Text style={styles.accLi}/>
-                <Account AccUser />
+                <View style={styles.accLi}>
+                    {userEmail}
+                    {userName}
+                    {userPass}
+                </View>
+
+
 
 
             </View>
